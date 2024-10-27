@@ -1,4 +1,4 @@
-from django.shortcuts import render,render_to_response
+from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required

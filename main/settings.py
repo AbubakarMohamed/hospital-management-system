@@ -7,7 +7,19 @@ SECRET_KEY = 'o!3$!vwqgdmd9+1#b^b((br!n$$rx5nhj7=n_=zaf1h7wx7#li'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['192.168.0.111', '127.0.0.1', '192.168.43.155']
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+   
+    'localhost:8000',   # If you are using a specific port
+    '127.0.0.1:8000',    # If you are using a specific port
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'https://localhost:8000',  # Include if you're using HTTPS
+]
 
 BUILT_IN_APPS = [
     'django.contrib.admin',
@@ -66,12 +78,8 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'demo',
-        'USER': 'root',
-        'PASSWORD': 'root_mysql',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

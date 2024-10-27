@@ -1,12 +1,11 @@
-from django.urls import path, include
-from django.conf.urls import url
+from django.urls import path, include, re_path
 from .views import *
 
 urlpatterns = [
     path('', view),
     path('generate/', generate),
     path('do_generate/', doGenerate),
-    url(r'change/(?P<id>\d+)/', change),
+    re_path(r'^change/(?P<id>\d+)/$', change),
     path('do_change/', doChange),
-    url(r'delete/(?P<id>\d+)/', delete),
+    re_path(r'^delete/(?P<id>\d+)/$', delete),
 ]
